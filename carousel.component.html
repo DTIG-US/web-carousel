@@ -1,0 +1,45 @@
+<section class="mt-4">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9 bg-white">
+        <div class="row">
+          <div class="col-md-12 m-4">
+            <img src="{{data.carouselImage}}" />
+          </div>
+        </div>
+
+       <div class="row">
+         <div class="col-md-12">
+           <ngx-slick-carousel class="carousel mx-5"
+                               #slickModal="slick-carousel"
+                               [config]="slideConfig"
+                               (init)="slickInit($event)"
+                               (breakpoint)="breakpoint($event)"
+                               (afterChange)="afterChange($event)"
+                               (beforeChange)="beforeChange($event)">
+             <div ngxSlickItem class="slide text-center" *ngFor="let item of news.carousel">
+               <h1>{{item.title}}</h1>
+               <h4>{{item.label}}</h4>
+               <p class="slide-item">{{item.description}}</p>
+             </div>
+
+             
+           </ngx-slick-carousel>
+         </div>
+       </div>
+
+
+      </div>
+      <div class="col-md-3 bg-black">
+        <h2 class="text-center text-white">News</h2>
+        <div class="card bg-transparent">
+          <div class="card-body text-white" *ngFor="let item of news.news">
+            <a href="{{item.url}}" class="text-white text-decoration-none"  target="_blank" >{{item.title}}</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
