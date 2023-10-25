@@ -1,6 +1,9 @@
 # Angular Carousel Component
 This Angular project contains a carousel component for displaying news items with images and links.
 
+Click [here](/CHANGELOG.md) for the CHANGE LOG
+Click [here](/CLIFF_NOTES.md) for the CLIFF NOTES
+
 ## Overview
 The project consists of the following files and components:
 
