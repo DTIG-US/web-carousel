@@ -14,10 +14,20 @@ Specialist in architecting enterprise-ready solutions and products that embrace 
 * __[Reda Saadalla](https://github.com/redasaadalla)__
 
     - Founder - Digital Transformation Innovators Group (DTIG), a consulting services company specializing in digital transformation.
-    - Founder - VisualQ, a R&D partnership focusing on emerging technologies.
-    - Founder - Insightful Health, a healthcare-oriented startup with products in the hand sanitation realm.
-    - Multiple patents in the areas of AI, Computer Vision, and Machine Learning.
-Specialist in architecting enterprise-ready solutions and products that embrace the next-generation of technology.
+
+* __[William Bateau](https://github.com/williambateau)__
+
+    - Solutions Architect - Digital Transformation Innovators Group (DTIG), a consulting services company specializing in digital transformation.
+
+* __[Mark Vincent Asahi](https://github.com/mikkoMasayuki)
+
+    - Full-Stack Developer
+
+* __[Lucas Estafanous](https://github.com/LucasEstafanous)
+
+    - Junior DevOps Engineer  - Digital Transformation Innovators Group (DTIG), a consulting services company specializing in digital transformation.
+
+
 
 Other Contributors
 ==================
