@@ -1,4 +1,5 @@
 # Angular Carousel Component
+
 This Angular project contains a carousel component for displaying news items with images and links.
 
 Click [here](/CHANGELOG.md) for the CHANGE LOG
@@ -6,6 +7,7 @@ Click [here](/CHANGELOG.md) for the CHANGE LOG
 Click [here](/CLIFF_NOTES.md) for the CLIFF NOTES
 
 ## Overview
+
 The project consists of the following files and components:
 
 - carousel.component.ts - The main component responsible for displaying the news carousel.
@@ -13,21 +15,27 @@ The project consists of the following files and components:
 - carousel.component.css - The CSS styles for the carousel component.
 - data.json - A JSON file containing news data.
 
-# Installation
+### Installation
 
-1. Clone this repository to your local machine:
+  1. Clone this repository to your local machine:
 
-git clone <repository-url>
+  ```bash
+  git clone <repository-url>
+  ```
 
-2. Navigate to the project directory:
+  1. Navigate to the project directory:
 
-cd angular-carousel-component
+  ```bash
+  cd angular-carousel-component
+  ```
 
-3. Install the required dependencies:
+  1. Install the required dependencies:
 
-npm install
+  ```bash
+  npm install
+  ```
 
-## Usage
+### Usage
 
 1. In the carousel.component.ts file, the CarouselComponent class is defined. It handles the initialization and configuration of the news carousel.
 
@@ -39,11 +47,11 @@ npm install
 
 5. The news items are displayed in the carousel in a responsive and user-friendly way, allowing users to click on news titles to view the full articles.
 
-## Configuration
+### Configuration
 
 You can customize the carousel's behavior and appearance by modifying the configuration options in the slideConfig object in carousel.component.ts. Additionally, you can style the carousel by editing the carousel.component.css file.
 
-## Contributing
+### Contributing
 
 If you would like to contribute to this project, please follow these steps:
 
@@ -54,5 +62,5 @@ If you would like to contribute to this project, please follow these steps:
 5. Create a pull request on the original repository.
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
+This project is licensed under the MIT License. See the LICENSE file for details.
