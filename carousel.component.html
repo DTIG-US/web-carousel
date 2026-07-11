@@ -17,8 +17,7 @@
                                (breakpoint)="breakpoint($event)"
                                (afterChange)="afterChange($event)"
                                (beforeChange)="beforeChange($event)">
-             <div ngxSlickItem class="slide text-center" *ngFor="let item of news.home.carousel">
-               <img src="{{item.image}}" alt="" />
+             <div ngxSlickItem class="slide text-center" *ngFor="let item of news.carousel">
                <h1>{{item.title}}</h1>
                <h4>{{item.label}}</h4>
                <p class="slide-item">{{item.description}}</p>
