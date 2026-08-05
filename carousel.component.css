@@ -1,7 +1,9 @@
 .slide-item{
   font-size: 14px;
-  color: black;
-    /* Ensure the background covers the slide area without stretching */
+  color: black;  
+}
+.slide {
+  /* Ensure the background covers the slide area without stretching */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
