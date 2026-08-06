@@ -1,17 +1,35 @@
-.slide-item{
+.slide-item {
   font-size: 14px;
-  color: black;  
+  color: white; /* Changed to white to be visible on black */
+  margin-top: auto; /* Pushes the description to the bottom of the black box */
+  margin-bottom: 0;
+  padding: 0;
 }
+
 .slide {
-  /* Ensure the background covers the slide area without stretching */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
-  /* You may also want to add min-height or padding */
-  min-height: 300px; /* Example height */
-  
-  /* Optional: Ensure the text is readable against the image (e.g. text shadows, darker background) */
-  color: white; 
+
+  min-height: 400px;
+
+  color: white;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+
+  /* Flexbox to lay out the black box on the left */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch; /* Stretches the box to full height */
+}
+
+.slide-content {
+  background-color: rgba(0, 0, 0, 0.7); /* Black box with 70% opacity */
+  width: 50%; /* Takes up half the slide */
+  padding: 30px;
+  text-align: left; /* Align text to the left */
+
+  /* Flexbox to keep description at the bottom */
+  display: flex;
+  flex-direction: column;
 }

@@ -17,10 +17,13 @@
                                (breakpoint)="breakpoint($event)"
                                (afterChange)="afterChange($event)"
                                (beforeChange)="beforeChange($event)">
-             <div ngxSlickItem class="slide text-center" *ngFor="let item of news.carousel">
-               <h1>{{item.title}}</h1>
-               <h4>{{item.label}}</h4>
-               <p class="slide-item">{{item.description}}</p>
+             <div ngxSlickItem class="slide" *ngFor="let item of news.carousel"
+     [style.background-image]="item.image ? 'url(' + item.image + ')' : 'none'">
+               <div class="slide-content">
+                 <h1>{{item.title}}</h1>
+                 <h4>{{item.label}}</h4>
+                 <p class="slide-item">{{item.description}}</p>
+               </div>
              </div>
 
 
