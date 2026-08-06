@@ -4,42 +4,51 @@
       <div class="col-md-9 bg-white">
         <div class="row">
           <div class="col-md-12 m-4">
-            <img src="{{data.carouselImage}}" />
+            <img src="{{data.carouselImage}}" alt="Insightful Health AI" />
           </div>
         </div>
 
-       <div class="row test">
-         <div class="col-md-12">
-           <ngx-slick-carousel class="carousel mx-5"
-                               #slickModal="slick-carousel"
-                               [config]="slideConfig"
-                               (init)="slickInit($event)"
-                               (breakpoint)="breakpoint($event)"
-                               (afterChange)="afterChange($event)"
-                               (beforeChange)="beforeChange($event)">
-             <div ngxSlickItem class="slide" *ngFor="let item of news.carousel"
-     [style.background-image]="item.image ? 'url(' + item.image + ')' : 'none'">
-               <div class="slide-content">
-                 <h1>{{item.title}}</h1>
-                 <h4>{{item.label}}</h4>
-                 <p class="slide-item">{{item.description}}</p>
-               </div>
-             </div>
-
-
-           </ngx-slick-carousel>
-         </div>
-       </div>
-
-
-      </div>
-      <div class="col-md-3 bg-black">
-        <h2 class="text-center text-white">News</h2>
-        <div class="card bg-transparent">
-          <div class="card-body text-white" *ngFor="let item of news.news">
-            <a href="{{item.url}}" class="text-white text-decoration-none"  target="_blank" >{{item.title}}</a>
+        <div class="row">
+          <div class="col-md-12">
+            <ngx-slick-carousel class="carousel mx-5"
+                                #slickModal="slick-carousel"
+                                [config]="slideConfig"
+                                (init)="slickInit($event)"
+                                (breakpoint)="breakpoint($event)"
+                                (afterChange)="afterChange($event)"
+                                (beforeChange)="beforeChange($event)">
+              @for (item of news.carousel; track item.title) {
+                <div ngxSlickItem class="slide"
+                     [style.background-image]="item.image ? 'url(' + item.image + ')' : 'none'">
+                  <div class="slide-content">
+                    <h1 class="slide-title">{{item.title}}</h1>
+                    <p class="slide-label">{{item.label}}</p>
+                    <hr class="slide-divider" aria-hidden="true" />
+                    <p class="slide-item">{{item.description}}</p>
+                    <a href="#learn-more" class="slide-cta" role="button" aria-label="Learn more about {{item.title}}">
+                      Learn More &rarr;
+                    </a>
+                  </div>
+                </div>
+              }
+            </ngx-slick-carousel>
           </div>
+        </div>
+      </div>
 
+      <!-- ─── News Sidebar ─────────────────────────── -->
+      <div class="col-md-3">
+        <div class="news-panel">
+          <h2 class="news-heading">News</h2>
+          <div class="news-heading-underline" aria-hidden="true"></div>
+          @for (item of news.news; track item.title) {
+            <div class="news-item">
+              <div class="news-accent-bar" aria-hidden="true"></div>
+              <a [href]="item.url" class="news-link" target="_blank" rel="noopener noreferrer">
+                {{item.title}}
+              </a>
+            </div>
+          }
         </div>
       </div>
 

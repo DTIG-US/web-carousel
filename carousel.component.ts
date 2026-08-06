@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import * as siteData from '../../data.json'
-import { CommonModule } from '@angular/common';
+import * as siteData from '../../data.json';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @Component({
   selector: 'app-carousel',
-  standalone: true as boolean,
-  imports: [CommonModule, SlickCarouselModule],
+  imports: [SlickCarouselModule],
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css']
 })
@@ -17,7 +15,7 @@ export class CarouselComponent {
   }
 
   news: any = (siteData as any).default;
-  slideConfig = {"slidesToShow": 1, "slidesToScroll": 1, "dots": true, "autoplay": true, centerMode: true};
+  slideConfig = {"slidesToShow": 1, "slidesToScroll": 1, "dots": true, "autoplay": true};
 
   slickInit(e: any) {
     console.log('slick initialized');

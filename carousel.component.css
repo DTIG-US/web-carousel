@@ -1,35 +1,195 @@
-.slide-item {
-  font-size: 14px;
-  color: white; /* Changed to white to be visible on black */
-  margin-top: auto; /* Pushes the description to the bottom of the black box */
-  margin-bottom: 0;
-  padding: 0;
-}
-
+/* ─── Slide Container ───────────────────────────────── */
 .slide {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  min-height: 400px;
+  min-height: 420px;
+  position: relative;
 
   color: white;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 
-  /* Flexbox to lay out the black box on the left */
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: stretch; /* Stretches the box to full height */
+  align-items: stretch;
 }
 
+/* ─── Glassmorphism Text Panel ───────────────────────── */
 .slide-content {
-  background-color: rgba(0, 0, 0, 0.7); /* Black box with 70% opacity */
-  width: 50%; /* Takes up half the slide */
-  padding: 30px;
-  text-align: left; /* Align text to the left */
+  background: rgba(10, 15, 44, 0.45);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border-right: 1px solid rgba(125, 249, 255, 0.18);
 
-  /* Flexbox to keep description at the bottom */
+  width: 32%;
+  padding: 36px 32px 28px 32px;
+
   display: flex;
   flex-direction: column;
+  gap: 0;
+
+  transition: background 0.3s ease;
+}
+
+/* ─── Slide Title (h1) ──────────────────────────────── */
+.slide-title {
+  font-family: 'Outfit', 'Inter', Helvetica, sans-serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 10px 0;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── Slide Label Badge (h4) ─────────────────────────── */
+.slide-label {
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7df9ff;
+  margin: 0 0 10px 0;
+}
+
+/* ─── Cyan Divider ───────────────────────────────────── */
+.slide-divider {
+  border: none;
+  border-top: 1px solid rgba(125, 249, 255, 0.45);
+  margin: 10px 0 14px 0;
+}
+
+/* ─── Slide Description (p) ─────────────────────────── */
+.slide-item {
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-size: 0.9rem;
+  color: rgba(220, 235, 255, 0.85);
+  margin: 0 0 auto 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* ─── CTA Button ─────────────────────────────────────── */
+.slide-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  padding: 10px 22px;
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #0a0f2c;
+  background: linear-gradient(135deg, #7df9ff 0%, #00c8d4 100%);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 18px rgba(125, 249, 255, 0.45), 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.25s ease, transform 0.2s ease, background 0.25s ease;
+  align-self: flex-start;
+}
+
+.slide-cta:hover,
+.slide-cta:focus-visible {
+  background: linear-gradient(135deg, #a0fbff 0%, #00e0ee 100%);
+  box-shadow: 0 0 28px rgba(125, 249, 255, 0.7), 0 6px 20px rgba(0, 0, 0, 0.35);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.slide-cta:focus-visible {
+  outline: 2px solid #7df9ff;
+  outline-offset: 3px;
+}
+
+/* ─── Slick Dot Override — Glowing Teal ─────────────── */
+::ng-deep .slick-dots li button:before {
+  color: rgba(125, 249, 255, 0.45);
+  font-size: 10px;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+::ng-deep .slick-dots li.slick-active button:before {
+  color: #7df9ff;
+  text-shadow: 0 0 8px rgba(125, 249, 255, 0.9);
+}
+
+/* ─── News Sidebar ───────────────────────────────────── */
+.news-panel {
+  background: #0a0f2c;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.news-heading {
+  font-family: 'Outfit', 'Inter', Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 6px 0;
+}
+
+.news-heading-underline {
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, #7df9ff, #00c8d4);
+  border-radius: 2px;
+  margin-bottom: 18px;
+}
+
+.news-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  transition: background 0.2s ease;
+}
+
+.news-item:last-child {
+  border-bottom: none;
+}
+
+.news-accent-bar {
+  flex-shrink: 0;
+  width: 3px;
+  min-height: 36px;
+  background: linear-gradient(180deg, #7df9ff, #00c8d4);
+  border-radius: 2px;
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+}
+
+.news-item:hover .news-accent-bar,
+.news-item:focus-within .news-accent-bar {
+  opacity: 1;
+}
+
+.news-link {
+  font-family: 'Inter', Helvetica, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(200, 220, 255, 0.8);
+  text-decoration: none;
+  line-height: 1.45;
+  transition: color 0.2s ease;
+}
+
+.news-link:hover,
+.news-link:focus-visible {
+  color: #7df9ff;
+  outline: none;
+}
+
+.news-link:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: #7df9ff;
 }
