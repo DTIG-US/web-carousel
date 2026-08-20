@@ -108,13 +108,13 @@
 
 /* ─── Slick Dot Override — Glowing Teal ─────────────── */
 ::ng-deep .slick-dots li button:before {
-  color: rgba(125, 249, 255, 0.45);
+  color:rgba(8, 22, 58, 0.82);
   font-size: 10px;
   transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 ::ng-deep .slick-dots li.slick-active button:before {
-  color: #7df9ff;
+  color: #0a0f2c;
   text-shadow: 0 0 8px rgba(125, 249, 255, 0.9);
 }
 

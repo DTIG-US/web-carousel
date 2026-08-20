@@ -15,7 +15,7 @@ export class CarouselComponent {
   }
 
   news: any = (siteData as any).default;
-  slideConfig = {"slidesToShow": 1, "slidesToScroll": 1, "dots": true, "autoplay": true};
+  slideConfig = { "slidesToShow": 1, "slidesToScroll": 1, "dots": true, "autoplay": true};
 
   slickInit(e: any) {
     console.log('slick initialized');
