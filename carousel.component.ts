@@ -1,9 +1,17 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { CommonModule } from '@angular/common';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 import * as siteData from '../../data.json';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @Component({
   selector: 'app-carousel',
+  standalone: true as boolean,
+  imports: [CommonModule, SlickCarouselModule],
+  standalone: true as boolean,
+  imports: [CommonModule, SlickCarouselModule],
   imports: [SlickCarouselModule],
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css']
