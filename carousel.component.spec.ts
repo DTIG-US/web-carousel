@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CarouselComponent } from './carousel.component';
 
 describe('CarouselComponent', () => {
@@ -8,7 +7,7 @@ describe('CarouselComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CarouselComponent ]
+      imports: [ CarouselComponent ]
     })
     .compileComponents();
 
@@ -21,3 +20,4 @@ describe('CarouselComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
