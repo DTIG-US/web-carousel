@@ -1,66 +1,158 @@
-# Angular Carousel Component
+# web-carousel — News Carousel Component
 
-This Angular project contains a carousel component for displaying news items with images and links.
+This submodule contains the `CarouselComponent` for the **IH Hand Sanitation** portal. It displays a hero banner carousel alongside a live news feed panel, both driven by `data.json`.
 
-Click [here](/CHANGELOG.md) for the CHANGE LOG
+- [CHANGELOG](CHANGELOG.md)
+- [CLIFF NOTES](CLIFF_NOTES.md)
 
-Click [here](/CLIFF_NOTES.md) for the CLIFF NOTES
+---
+
+## 📋 Table of Contents
+
+- [Overview](#overview)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Dependencies](#dependencies)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
 
 ## Overview
 
-The project consists of the following files and components:
+The `CarouselComponent` renders two side-by-side panels:
 
-- carousel.component.ts - The main component responsible for displaying the news carousel.
-- carousel.component.html - The HTML template for the carousel component.
-- carousel.component.css - The CSS styles for the carousel component.
-- data.json - A JSON file containing news data.
+- **Left (75%)** — A `ngx-slick-carousel` banner displaying slides with title, label, and description text from `data.json`.
+- **Right (25%)** — A news feed listing article links from `data.json`.
 
-### Installation
+Files in this submodule:
 
-  1. Clone this repository to your local machine:
+| File | Purpose |
+| --- | --- |
+| `carousel.component.ts` | Component class — loads `data.json`, configures `slideConfig`, handles carousel events |
+| `carousel.component.html` | Template — Bootstrap grid, `<ngx-slick-carousel>`, and news panel |
+| `carousel.component.css` | Component-scoped styles (glassmorphism, layout, slide styling) |
+| `carousel.component.spec.ts` | Unit tests (Karma + Jasmine) |
 
-  ```bash
-  git clone <repository-url>
-  ```
+---
 
-  1. Navigate to the project directory:
+## Installation
 
-  ```bash
-  cd angular-carousel-component
-  ```
+1. Clone this repository:
 
-  1. Install the required dependencies:
+   ```bash
+   git clone https://github.com/DTIG-US/web-carousel.git
+   cd web-carousel
+   ```
 
-  ```bash
-  npm install
-  ```
+2. Install dependencies:
 
-### Usage
+   ```bash
+   npm install
+   ```
 
-1. In the carousel.component.ts file, the CarouselComponent class is defined. It handles the initialization and configuration of the news carousel.
+> [!NOTE]
+> In normal use, this component is consumed as a Git submodule of `ih-hand-sanitation-www`. See the [parent README](https://github.com/DTIG-US/ih-hand-sanitation-www) for the full setup workflow.
 
-2. The news data is loaded from the data.json file, which contains news items with titles, labels, descriptions, and URLs.
+---
 
-3. The carousel is implemented using the ngx-slick-carousel library, which provides a slick carousel component for Angular. It's configured with options such as autoplay, center mode, and more.
+## Usage
 
-4. The slickInit, breakpoint, afterChange, and beforeChange methods in carousel.component.ts handle various carousel events and log messages to the console.
+Add the selector to your root application template (`app.html`):
 
-5. The news items are displayed in the carousel in a responsive and user-friendly way, allowing users to click on news titles to view the full articles.
+```html
+<app-carousel></app-carousel>
+```
 
-### Configuration
+Import the component in your root `App` component (Angular v20+ standalone — no NgModule required):
 
-You can customize the carousel's behavior and appearance by modifying the configuration options in the slideConfig object in carousel.component.ts. Additionally, you can style the carousel by editing the carousel.component.css file.
+```typescript
+import { Component } from '@angular/core';
+import { CarouselComponent } from './web-carousel/carousel.component';
 
-### Contributing
+@Component({
+  selector: 'app-root',
+  imports: [CarouselComponent],
+  templateUrl: './app.html',
+})
+export class App {}
+```
 
-If you would like to contribute to this project, please follow these steps:
+---
+
+## Configuration
+
+The carousel behaviour is controlled by the `slideConfig` object in `carousel.component.ts`:
+
+```typescript
+slideConfig = {
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  dots: true,
+  autoplay: true
+};
+```
+
+Modify these options to change the number of visible slides, enable/disable autoplay, or add navigation arrows. Full configuration options are documented in the [ngx-slick-carousel docs](https://github.com/devmark/ngx-slick-carousel).
+
+### Data Shape
+
+The component reads `../../data.json`. The expected structure:
+
+```json
+{
+  "carousel": [
+    {
+      "title": "Slide Title",
+      "label": "Category Label",
+      "description": "Short description text."
+    }
+  ],
+  "news": [
+    {
+      "title": "News Article Title",
+      "url": "https://example.com/article"
+    }
+  ]
+}
+```
+
+---
+
+## Dependencies
+
+| Package | Purpose |
+| --- | --- |
+| `ngx-slick-carousel` | Angular wrapper for the Slick carousel library |
+| `slick-carousel` | Core Slick carousel JS/CSS |
+| `bootstrap` | Grid layout and utility classes |
+| `jquery` | Required peer dependency of `slick-carousel` |
+| `@angular/common` | `CommonModule` for structural directives |
+
+---
+
+## Testing
+
+Run the unit test suite with:
+
+```bash
+ng test
+```
+
+---
+
+## Contributing
 
 1. Fork this repository.
-2. Create a new branch for your feature or bug fix: git checkout -b feature-name.
-3. Make your changes and commit them: git commit -m "Description of changes".
-4. Push your changes to your fork: git push origin feature-name.
-5. Create a pull request on the original repository.
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Commit your changes: `git commit -m "Description of changes"`
+4. Push to your fork: `git push origin feature/your-feature-name`
+5. Open a pull request against `DTIG-US/web-carousel`.
+
+---
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
