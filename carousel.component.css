@@ -1,14 +1,55 @@
+:host {
+  /* Carousel Component Tokens & Defaults */
+  --ih-carousel-min-height: 420px;
+  --ih-carousel-panel-bg: rgba(10, 15, 44, 0.45);
+  --ih-carousel-panel-blur: var(--ih-blur-glass, 14px);
+  --ih-carousel-panel-border: var(--ih-color-border, rgba(125, 249, 255, 0.18));
+  --ih-carousel-panel-width: 32%;
+
+  /* Slide Typography & Colors */
+  --ih-carousel-title-font: var(--ih-font-heading, 'Outfit', 'Inter', Helvetica, sans-serif);
+  --ih-carousel-title-color: var(--ih-color-text-primary, #ffffff);
+  --ih-carousel-label-font: var(--ih-font-sans, 'Inter', Helvetica, sans-serif);
+  --ih-carousel-label-color: var(--ih-color-accent, #7df9ff);
+  --ih-carousel-divider-color: rgba(125, 249, 255, 0.45);
+  --ih-carousel-desc-font: var(--ih-font-sans, 'Inter', Helvetica, sans-serif);
+  --ih-carousel-desc-color: var(--ih-color-text-secondary, rgba(200, 220, 255, 0.85));
+
+  /* CTA Button Tokens */
+  --ih-carousel-cta-font: var(--ih-font-sans, 'Inter', Helvetica, sans-serif);
+  --ih-carousel-cta-color: var(--ih-color-primary, #0a0f2c);
+  --ih-carousel-cta-bg: var(--ih-gradient-accent, linear-gradient(135deg, #7df9ff 0%, #00c8d4 100%));
+  --ih-carousel-cta-bg-hover: var(--ih-gradient-accent-hover, linear-gradient(135deg, #a0fbff 0%, #00e0ee 100%));
+  --ih-carousel-cta-radius: var(--ih-radius-sm, 6px);
+  --ih-carousel-cta-shadow: var(--ih-shadow-glow, 0 0 18px rgba(125, 249, 255, 0.45), 0 4px 12px rgba(0, 0, 0, 0.3));
+  --ih-carousel-cta-shadow-hover: var(--ih-shadow-glow-hover, 0 0 28px rgba(125, 249, 255, 0.7), 0 6px 20px rgba(0, 0, 0, 0.35));
+  --ih-carousel-cta-focus-outline: var(--ih-color-accent, #7df9ff);
+
+  /* News Sidebar Tokens */
+  --ih-carousel-news-bg: var(--ih-color-primary, #0a0f2c);
+  --ih-carousel-news-heading-font: var(--ih-font-heading, 'Outfit', 'Inter', Helvetica, sans-serif);
+  --ih-carousel-news-heading-color: var(--ih-color-text-primary, #ffffff);
+  --ih-carousel-news-accent-bar: var(--ih-gradient-accent-h, linear-gradient(90deg, #7df9ff, #00c8d4));
+  --ih-carousel-news-item-border: rgba(255, 255, 255, 0.07);
+  --ih-carousel-news-item-accent: var(--ih-gradient-accent-v, linear-gradient(180deg, #7df9ff, #00c8d4));
+  --ih-carousel-news-link-font: var(--ih-font-sans, 'Inter', Helvetica, sans-serif);
+  --ih-carousel-news-link-color: var(--ih-color-text-secondary, rgba(200, 220, 255, 0.8));
+  --ih-carousel-news-link-hover-color: var(--ih-color-accent, #7df9ff);
+
+  /* Slick Dots Tokens */
+  --ih-carousel-dot-color: rgba(8, 22, 58, 0.82);
+  --ih-carousel-dot-active-color: #0a0f2c;
+  --ih-carousel-dot-active-glow: rgba(125, 249, 255, 0.9);
+}
+
 /* ─── Slide Container ───────────────────────────────── */
 .slide {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  min-height: 420px;
+  min-height: var(--ih-carousel-min-height);
   position: relative;
-
   color: white;
-
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -17,56 +58,53 @@
 
 /* ─── Glassmorphism Text Panel ───────────────────────── */
 .slide-content {
-  background: rgba(10, 15, 44, 0.45);
-  backdrop-filter: blur(14px) saturate(1.4);
-  -webkit-backdrop-filter: blur(14px) saturate(1.4);
-  border-right: 1px solid rgba(125, 249, 255, 0.18);
-
-  width: 32%;
+  background: var(--ih-carousel-panel-bg);
+  backdrop-filter: blur(var(--ih-carousel-panel-blur)) saturate(1.4);
+  -webkit-backdrop-filter: blur(var(--ih-carousel-panel-blur)) saturate(1.4);
+  border-right: 1px solid var(--ih-carousel-panel-border);
+  width: var(--ih-carousel-panel-width);
   padding: 36px 32px 28px 32px;
-
   display: flex;
   flex-direction: column;
   gap: 0;
-
   transition: background 0.3s ease;
 }
 
 /* ─── Slide Title (h1) ──────────────────────────────── */
 .slide-title {
-  font-family: 'Outfit', 'Inter', Helvetica, sans-serif;
+  font-family: var(--ih-carousel-title-font);
   font-size: 1.65rem;
   font-weight: 700;
   line-height: 1.25;
   margin: 0 0 10px 0;
-  color: #ffffff;
+  color: var(--ih-carousel-title-color);
   letter-spacing: -0.01em;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* ─── Slide Label Badge (h4) ─────────────────────────── */
 .slide-label {
-  font-family: 'Inter', Helvetica, sans-serif;
+  font-family: var(--ih-carousel-label-font);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #7df9ff;
+  color: var(--ih-carousel-label-color);
   margin: 0 0 10px 0;
 }
 
 /* ─── Cyan Divider ───────────────────────────────────── */
 .slide-divider {
   border: none;
-  border-top: 1px solid rgba(125, 249, 255, 0.45);
+  border-top: 1px solid var(--ih-carousel-divider-color);
   margin: 10px 0 14px 0;
 }
 
 /* ─── Slide Description (p) ─────────────────────────── */
 .slide-item {
-  font-family: 'Inter', Helvetica, sans-serif;
+  font-family: var(--ih-carousel-desc-font);
   font-size: 0.9rem;
-  color: rgba(200, 220, 255, 0.85);
+  color: var(--ih-carousel-desc-color);
   margin: 0 0 auto 0;
   padding: 0;
   line-height: 1.6;
@@ -79,48 +117,48 @@
   gap: 6px;
   margin-top: 24px;
   padding: 10px 22px;
-  font-family: 'Inter', Helvetica, sans-serif;
+  font-family: var(--ih-carousel-cta-font);
   font-size: 0.875rem;
   font-weight: 600;
-  color: #0a0f2c;
-  background: linear-gradient(135deg, #7df9ff 0%, #00c8d4 100%);
+  color: var(--ih-carousel-cta-color);
+  background: var(--ih-carousel-cta-bg);
   border: none;
-  border-radius: 6px;
+  border-radius: var(--ih-carousel-cta-radius);
   cursor: pointer;
   text-decoration: none;
-  box-shadow: 0 0 18px rgba(125, 249, 255, 0.45), 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--ih-carousel-cta-shadow);
   transition: box-shadow 0.25s ease, transform 0.2s ease, background 0.25s ease;
   align-self: flex-start;
 }
 
 .slide-cta:hover,
 .slide-cta:focus-visible {
-  background: linear-gradient(135deg, #a0fbff 0%, #00e0ee 100%);
-  box-shadow: 0 0 28px rgba(125, 249, 255, 0.7), 0 6px 20px rgba(0, 0, 0, 0.35);
+  background: var(--ih-carousel-cta-bg-hover);
+  box-shadow: var(--ih-carousel-cta-shadow-hover);
   transform: translateY(-1px);
   outline: none;
 }
 
 .slide-cta:focus-visible {
-  outline: 2px solid #7df9ff;
+  outline: 2px solid var(--ih-carousel-cta-focus-outline);
   outline-offset: 3px;
 }
 
-/* ─── Slick Dot Override — Glowing Teal ─────────────── */
+/* ─── Slick Dot Override ─────────────────────────────── */
 ::ng-deep .slick-dots li button:before {
-  color:rgba(8, 22, 58, 0.82);
+  color: var(--ih-carousel-dot-color);
   font-size: 10px;
   transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 ::ng-deep .slick-dots li.slick-active button:before {
-  color: #0a0f2c;
-  text-shadow: 0 0 8px rgba(125, 249, 255, 0.9);
+  color: var(--ih-carousel-dot-active-color);
+  text-shadow: 0 0 8px var(--ih-carousel-dot-active-glow);
 }
 
 /* ─── News Sidebar ───────────────────────────────────── */
 .news-panel {
-  background: #0a0f2c;
+  background: var(--ih-carousel-news-bg);
   padding: 24px 20px;
   display: flex;
   flex-direction: column;
@@ -128,10 +166,10 @@
 }
 
 .news-heading {
-  font-family: 'Outfit', 'Inter', Helvetica, sans-serif;
+  font-family: var(--ih-carousel-news-heading-font);
   font-size: 1.1rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--ih-carousel-news-heading-color);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin: 0 0 6px 0;
@@ -140,7 +178,7 @@
 .news-heading-underline {
   width: 36px;
   height: 2px;
-  background: linear-gradient(90deg, #7df9ff, #00c8d4);
+  background: var(--ih-carousel-news-accent-bar);
   border-radius: 2px;
   margin-bottom: 18px;
 }
@@ -150,7 +188,7 @@
   align-items: flex-start;
   gap: 10px;
   padding: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid var(--ih-carousel-news-item-border);
   transition: background 0.2s ease;
 }
 
@@ -162,7 +200,7 @@
   flex-shrink: 0;
   width: 3px;
   min-height: 36px;
-  background: linear-gradient(180deg, #7df9ff, #00c8d4);
+  background: var(--ih-carousel-news-item-accent);
   border-radius: 2px;
   opacity: 0.4;
   transition: opacity 0.2s ease;
@@ -174,10 +212,10 @@
 }
 
 .news-link {
-  font-family: 'Inter', Helvetica, sans-serif;
+  font-family: var(--ih-carousel-news-link-font);
   font-size: 0.8rem;
   font-weight: 400;
-  color: rgba(200, 220, 255, 0.8);
+  color: var(--ih-carousel-news-link-color);
   text-decoration: none;
   line-height: 1.45;
   transition: color 0.2s ease;
@@ -185,11 +223,12 @@
 
 .news-link:hover,
 .news-link:focus-visible {
-  color: #7df9ff;
+  color: var(--ih-carousel-news-link-hover-color);
   outline: none;
 }
 
 .news-link:focus-visible {
   text-decoration: underline;
-  text-decoration-color: #7df9ff;
+  text-decoration-color: var(--ih-carousel-news-link-hover-color);
 }
+
