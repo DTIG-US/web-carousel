@@ -1,19 +1,29 @@
 :host {
   /* Carousel Component Tokens & Defaults */
-  --ih-carousel-min-height: 420px;
-  --ih-carousel-panel-bg: rgba(10, 15, 44, 0.45);
+  --ih-carousel-height: 420px;
+  --ih-carousel-height-sm: 320px;
+  --ih-carousel-height-xs: 280px;
+  
+  --ih-carousel-panel-bg: rgba(10, 15, 44, 0.55);
   --ih-carousel-panel-blur: var(--ih-blur-glass, 14px);
   --ih-carousel-panel-border: var(--ih-color-border, rgba(125, 249, 255, 0.18));
-  --ih-carousel-panel-width: 32%;
+  --ih-carousel-panel-width: 45%;
+  --ih-carousel-panel-padding: 40px 36px;
 
   /* Slide Typography & Colors */
   --ih-carousel-title-font: var(--ih-font-heading, 'Outfit', 'Inter', Helvetica, sans-serif);
   --ih-carousel-title-color: var(--ih-color-text-primary, #ffffff);
+  --ih-carousel-title-size: 2rem;
+  
   --ih-carousel-label-font: var(--ih-font-sans, 'Inter', Helvetica, sans-serif);
   --ih-carousel-label-color: var(--ih-color-accent, #7df9ff);
+  --ih-carousel-label-size: 0.8rem;
+  
   --ih-carousel-divider-color: rgba(125, 249, 255, 0.45);
+  
   --ih-carousel-desc-font: var(--ih-font-sans, 'Inter', Helvetica, sans-serif);
   --ih-carousel-desc-color: var(--ih-color-text-secondary, rgba(200, 220, 255, 0.85));
+  --ih-carousel-desc-size: 0.95rem;
 
   /* CTA Button Tokens */
   --ih-carousel-cta-font: var(--ih-font-sans, 'Inter', Helvetica, sans-serif);
@@ -42,70 +52,147 @@
   --ih-carousel-dot-active-glow: rgba(125, 249, 255, 0.9);
 }
 
-/* ─── Slide Container ───────────────────────────────── */
-.slide {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: var(--ih-carousel-min-height);
-  position: relative;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: stretch;
+/* ─── Section Layout ─────────────────────────────────── */
+.carousel-section {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
-/* ─── Glassmorphism Text Panel ───────────────────────── */
+.container-fluid {
+  padding: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+.carousel-col,
+.news-col {
+  padding: 0;
+}
+
+/* ─── Carousel Wrapper ────────────────────────────────── */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: var(--ih-carousel-height);
+  overflow: hidden;
+}
+
+/* ─── Override ngx-carousel-ease internals ────────────── */
+::ng-deep carousel .carousel-container {
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+::ng-deep carousel .slides-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  /* Override the library's grid so the single slide fills 100% */
+  display: flex !important;
+  overflow: hidden !important;
+}
+
+::ng-deep carousel .carousel-slide {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  flex: 0 0 100% !important;
+  height: var(--ih-carousel-height) !important;
+  /* Ensure background image fills the full slide */
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* ─── Individual Slide ────────────────────────────────── */
+.slide {
+  position: relative;
+  width: 100%;
+  height: var(--ih-carousel-height);
+  overflow: hidden;
+}
+
+/* ─── Slide Image ─────────────────────────────────────── */
+.slide-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* ─── Glassmorphism Overlay ───────────────────────────── */
+.slide-content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(10, 15, 44, 0.7) 0%, rgba(10, 15, 44, 0.3) 70%, transparent 100%);
+}
+
 .slide-content {
   background: var(--ih-carousel-panel-bg);
   backdrop-filter: blur(var(--ih-carousel-panel-blur)) saturate(1.4);
   -webkit-backdrop-filter: blur(var(--ih-carousel-panel-blur)) saturate(1.4);
   border-right: 1px solid var(--ih-carousel-panel-border);
+  border-radius: 0 8px 8px 0;
   width: var(--ih-carousel-panel-width);
-  padding: 36px 32px 28px 32px;
+  padding: var(--ih-carousel-panel-padding);
   display: flex;
   flex-direction: column;
   gap: 0;
-  transition: background 0.3s ease;
+  margin-left: 0;
+  max-width: 550px;
 }
 
-/* ─── Slide Title (h1) ──────────────────────────────── */
+/* ─── Slide Label ────────────────────────────────────── */
+.slide-label {
+  font-family: var(--ih-carousel-label-font);
+  font-size: var(--ih-carousel-label-size);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ih-carousel-label-color);
+  margin: 0 0 8px 0;
+}
+
+/* ─── Slide Title ────────────────────────────────────── */
 .slide-title {
   font-family: var(--ih-carousel-title-font);
-  font-size: 1.65rem;
+  font-size: var(--ih-carousel-title-size);
   font-weight: 700;
-  line-height: 1.25;
-  margin: 0 0 10px 0;
+  line-height: 1.2;
+  margin: 0 0 6px 0;
   color: var(--ih-carousel-title-color);
   letter-spacing: -0.01em;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
-/* ─── Slide Label Badge (h4) ─────────────────────────── */
-.slide-label {
-  font-family: var(--ih-carousel-label-font);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ih-carousel-label-color);
-  margin: 0 0 10px 0;
-}
-
-/* ─── Cyan Divider ───────────────────────────────────── */
+/* ─── Divider ────────────────────────────────────────── */
 .slide-divider {
   border: none;
   border-top: 1px solid var(--ih-carousel-divider-color);
-  margin: 10px 0 14px 0;
+  margin: 8px 0 12px 0;
+  width: 60px;
 }
 
-/* ─── Slide Description (p) ─────────────────────────── */
-.slide-item {
+/* ─── Description ────────────────────────────────────── */
+.slide-description {
   font-family: var(--ih-carousel-desc-font);
-  font-size: 0.9rem;
+  font-size: var(--ih-carousel-desc-size);
   color: var(--ih-carousel-desc-color);
-  margin: 0 0 auto 0;
+  margin: 0 0 16px 0;
   padding: 0;
   line-height: 1.6;
 }
@@ -115,8 +202,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 24px;
-  padding: 10px 22px;
+  padding: 10px 24px;
   font-family: var(--ih-carousel-cta-font);
   font-size: 0.875rem;
   font-weight: 600;
@@ -144,25 +230,97 @@
   outline-offset: 3px;
 }
 
-/* ─── Slick Dot Override ─────────────────────────────── */
-::ng-deep .slick-dots li button:before {
-  color: var(--ih-carousel-dot-color);
-  font-size: 10px;
-  transition: color 0.2s ease, text-shadow 0.2s ease;
+/* ─── Overlay: Collapse banner-container height ───────── */
+/*
+ * Why: The library renders .banner-container (arrows + autoplay)
+ * above .slides-container in DOM order, consuming vertical space.
+ * height:0 + overflow:visible collapses the layout footprint while
+ * still allowing absolutely-positioned children to be visible.
+ */
+::ng-deep carousel .banner-container {
+  height: 0 !important;
+  margin-bottom: 0 !important;
+  overflow: visible !important;
+  pointer-events: none;
 }
 
-::ng-deep .slick-dots li.slick-active button:before {
-  color: var(--ih-carousel-dot-active-color);
-  text-shadow: 0 0 8px var(--ih-carousel-dot-active-glow);
+/* Re-enable pointer events only on interactive elements inside */
+::ng-deep carousel .banner-container * {
+  pointer-events: auto;
 }
 
-/* ─── News Sidebar ───────────────────────────────────── */
+/* ─── Overlay: Autoplay Controls → lower-right ────────── */
+::ng-deep carousel .autoplay-container {
+  position: absolute !important;
+  bottom: 14px !important;
+  right: 14px !important;
+  z-index: 20 !important;
+  display: flex !important;
+  gap: 6px !important;
+  background: rgba(10, 15, 44, 0.55) !important;
+  backdrop-filter: blur(10px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(1.4) !important;
+  border: 1px solid rgba(125, 249, 255, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 5px 8px !important;
+}
+
+::ng-deep carousel .autoplay-container svg {
+  fill: rgba(255, 255, 255, 0.85) !important;
+  width: 1.1rem !important;
+  height: 1.1rem !important;
+  transition: fill 0.2s ease !important;
+}
+
+::ng-deep carousel .autoplay-container button:hover svg {
+  fill: var(--ih-carousel-label-color, #7df9ff) !important;
+}
+
+::ng-deep carousel .autoplay-container .play:disabled svg,
+::ng-deep carousel .autoplay-container .pause:disabled svg {
+  fill: rgba(255, 255, 255, 0.25) !important;
+  cursor: not-allowed !important;
+}
+
+/* ─── Overlay: Bullets → center-bottom ───────────────── */
+::ng-deep carousel .bullets-container {
+  position: absolute !important;
+  bottom: 16px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 20 !important;
+  margin-top: 0 !important;
+  display: flex !important;
+  gap: 8px !important;
+}
+
+::ng-deep carousel .bullet {
+  width: 10px !important;
+  height: 10px !important;
+  background: rgba(255, 255, 255, 0.45) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  border-radius: 50% !important;
+  transition: background 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+::ng-deep carousel .bullet.current {
+  background: var(--ih-carousel-label-color, #7df9ff) !important;
+  box-shadow: 0 0 8px rgba(125, 249, 255, 0.8) !important;
+  border-color: transparent !important;
+}
+
+/* ─── News Sidebar ────────────────────────────────────── */
+.news-col {
+  height: var(--ih-carousel-height);
+}
+
 .news-panel {
   background: var(--ih-carousel-news-bg);
-  padding: 24px 20px;
+  padding: 28px 22px;
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow-y: auto;
 }
 
 .news-heading {
@@ -172,7 +330,7 @@
   color: var(--ih-carousel-news-heading-color);
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  margin: 0 0 6px 0;
+  margin: 0 0 4px 0;
 }
 
 .news-heading-underline {
@@ -180,7 +338,7 @@
   height: 2px;
   background: var(--ih-carousel-news-accent-bar);
   border-radius: 2px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .news-item {
@@ -232,3 +390,116 @@
   text-decoration-color: var(--ih-carousel-news-link-hover-color);
 }
 
+/* ─── Responsive ────────────────────────────────────────── */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .carousel-wrapper,
+  .slide {
+    height: var(--ih-carousel-height-sm);
+  }
+
+  ::ng-deep carousel .carousel-slide {
+    height: var(--ih-carousel-height-sm) !important;
+  }
+  
+  .news-col {
+    height: var(--ih-carousel-height-sm);
+  }
+  
+  :host {
+    --ih-carousel-panel-width: 55%;
+    --ih-carousel-panel-padding: 32px 28px;
+    --ih-carousel-title-size: 1.6rem;
+  }
+  
+  .slide-content {
+    max-width: 450px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .carousel-wrapper,
+  .slide {
+    height: var(--ih-carousel-height-xs);
+  }
+
+  ::ng-deep carousel .carousel-slide {
+    height: var(--ih-carousel-height-xs) !important;
+  }
+  
+  .news-col {
+    height: auto;
+    min-height: 300px;
+  }
+  
+  :host {
+    --ih-carousel-panel-width: 75%;
+    --ih-carousel-panel-padding: 24px 20px;
+    --ih-carousel-title-size: 1.3rem;
+    --ih-carousel-desc-size: 0.85rem;
+  }
+  
+  .slide-content {
+    max-width: 100%;
+    border-radius: 0;
+    margin-left: 0;
+  }
+  
+  .slide-content-overlay {
+    background: linear-gradient(90deg, rgba(10, 15, 44, 0.8) 0%, rgba(10, 15, 44, 0.4) 100%);
+  }
+  
+  .slide-divider {
+    width: 40px;
+  }
+  
+  .slide-cta {
+    padding: 8px 18px;
+    font-size: 0.8rem;
+  }
+  
+  .news-panel {
+    padding: 20px 16px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+  .carousel-wrapper,
+  .slide {
+    height: 260px;
+  }
+
+  ::ng-deep carousel .carousel-slide {
+    height: 260px !important;
+  }
+  
+  :host {
+    --ih-carousel-panel-width: 85%;
+    --ih-carousel-panel-padding: 18px 16px;
+    --ih-carousel-title-size: 1.1rem;
+    --ih-carousel-desc-size: 0.75rem;
+    --ih-carousel-label-size: 0.65rem;
+  }
+  
+  .slide-content-overlay {
+    background: linear-gradient(90deg, rgba(10, 15, 44, 0.85) 0%, rgba(10, 15, 44, 0.5) 100%);
+  }
+  
+  .slide-divider {
+    width: 30px;
+    margin: 4px 0 8px 0;
+  }
+  
+  .slide-cta {
+    padding: 6px 14px;
+    font-size: 0.7rem;
+    margin-top: 4px;
+  }
+  
+  ::ng-deep .slick-dots {
+    bottom: 8px !important;
+  }
+}

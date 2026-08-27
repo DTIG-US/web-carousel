@@ -2,20 +2,16 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-9 bg-white">
-        
 
         <div class="row">
           <div class="col-md-12">
-            <ngx-slick-carousel class="carousel mx-5"
-                                #slickModal="slick-carousel"
-                                [config]="slideConfig"
-                                (init)="slickInit($event)"
-                                (breakpoint)="breakpoint($event)"
-                                (afterChange)="afterChange($event)"
-                                (beforeChange)="beforeChange($event)">
-              @for (item of news.carousel; track item.title) {
-                <div ngxSlickItem class="slide"
-                     [style.background-image]="item.image ? 'url(' + item.image + ')' : 'none'">
+            <carousel [responsive]="true" [slideToShow]="1" [slideToScroll]="1" [dots]="true" [autoPlay]="true"
+              [displayAutoPlayControls]="true" [infinite]="true" [counter]="false"
+              [slideMaxWidth]="99999" [gapBetweenSlides]="0">
+              <ng-template #carouselViewContainer #carouselTemplateRef>
+                @for (item of news.carousel; track item.title) {
+                <div class="carousel-slide slide"
+                  [style.background-image]="item.image ? 'url(' + item.image + ')' : 'none'">
                   <div class="slide-content">
                     <h1 class="slide-title">{{item.title}}</h1>
                     <p class="slide-label">{{item.label}}</p>
@@ -26,8 +22,9 @@
                     </a>
                   </div>
                 </div>
-              }
-            </ngx-slick-carousel>
+                }
+              </ng-template>
+            </carousel>
           </div>
         </div>
       </div>
@@ -38,12 +35,12 @@
           <h2 class="news-heading">News</h2>
           <div class="news-heading-underline" aria-hidden="true"></div>
           @for (item of news.news; track item.title) {
-            <div class="news-item">
-              <div class="news-accent-bar" aria-hidden="true"></div>
-              <a [href]="item.url" class="news-link" target="_blank" rel="noopener noreferrer">
-                {{item.title}}
-              </a>
-            </div>
+          <div class="news-item">
+            <div class="news-accent-bar" aria-hidden="true"></div>
+            <a [href]="item.url" class="news-link" target="_blank" rel="noopener noreferrer">
+              {{item.title}}
+            </a>
+          </div>
           }
         </div>
       </div>
