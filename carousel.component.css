@@ -7,7 +7,7 @@
   --ih-carousel-panel-bg: rgba(10, 15, 44, 0.55);
   --ih-carousel-panel-blur: var(--ih-blur-glass, 14px);
   --ih-carousel-panel-border: var(--ih-color-border, rgba(125, 249, 255, 0.18));
-  --ih-carousel-panel-width: 45%;
+  --ih-carousel-panel-width: var(--ih-carousel-panel-width, 25%);
   --ih-carousel-panel-padding: 40px 36px;
 
   /* Slide Typography & Colors */
@@ -142,10 +142,10 @@
 }
 
 .slide-content {
-  background: var(--ih-carousel-panel-bg);
+  background: var(--ih-carousel-panel-bg, rgba(10, 15, 44, 0.55));
   backdrop-filter: blur(var(--ih-carousel-panel-blur)) saturate(1.4);
   -webkit-backdrop-filter: blur(var(--ih-carousel-panel-blur)) saturate(1.4);
-  border-right: 1px solid var(--ih-carousel-panel-border);
+  border-right: 1px solid var(--ih-carousel-panel-border, rgba(125, 249, 255, 0.18));
   border-radius: 0 8px 8px 0;
   width: var(--ih-carousel-panel-width);
   padding: var(--ih-carousel-panel-padding);
@@ -163,7 +163,7 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ih-carousel-label-color);
+  color: var(--ih-carousel-label-color, #7df9ff);
   margin: 0 0 8px 0;
 }
 
@@ -174,7 +174,7 @@
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 6px 0;
-  color: var(--ih-carousel-title-color);
+  color: var(--ih-carousel-title-color, #ffffff);
   letter-spacing: -0.01em;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
@@ -182,7 +182,7 @@
 /* ─── Divider ────────────────────────────────────────── */
 .slide-divider {
   border: none;
-  border-top: 1px solid var(--ih-carousel-divider-color);
+  border-top: 1px solid var(--ih-carousel-divider-color, rgba(125, 249, 255, 0.45));
   margin: 8px 0 12px 0;
   width: 60px;
 }
@@ -192,6 +192,15 @@
   font-family: var(--ih-carousel-desc-font);
   font-size: var(--ih-carousel-desc-size);
   color: var(--ih-carousel-desc-color);
+  margin: 0 0 16px 0;
+  padding: 0;
+  line-height: 1.6;
+}
+/* ---- Item ----- */
+.slide-item {
+  font-family: var(--ih-carousel-desc-font);
+  font-size: var(--ih-carousel-desc-size);
+  color: var(--ih-carousel-item-color, rgba(200, 220, 255, 0.85));
   margin: 0 0 16px 0;
   padding: 0;
   line-height: 1.6;
