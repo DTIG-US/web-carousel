@@ -89,19 +89,10 @@
 }
 
 ::ng-deep carousel .slides-container {
-  width: 100% !important;
-  max-width: 100% !important;
   margin: 0 !important;
-  /* Override the library's grid so the single slide fills 100% */
-  display: flex !important;
-  overflow: hidden !important;
 }
 
 ::ng-deep carousel .carousel-slide {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-width: 100% !important;
-  flex: 0 0 100% !important;
   height: var(--ih-carousel-height) !important;
   /* Ensure background image fills the full slide */
   background-size: cover !important;
