@@ -1,41 +1,77 @@
 :host {
-  /* Carousel Component Tokens & Defaults */
-  --ih-carousel-height: 420px;
-  --ih-carousel-height-sm: 320px;
-  --ih-carousel-height-xs: 280px;
-  
-  --ih-carousel-panel-bg: rgba(10, 15, 44, 0.55);
-  --ih-carousel-panel-blur: var(--ih-blur-glass, 14px);
-  --ih-carousel-panel-border: var(--ih-color-border, rgba(125, 249, 255, 0.18));
-  --ih-carousel-panel-width: var(--ih-carousel-panel-width, 25%);
-  --ih-carousel-panel-padding: 40px 36px;
 
-  /* Slide Typography & Colors */
-  --ih-carousel-title-font: var(--ih-font-heading, 'Outfit', 'Inter', Helvetica, sans-serif);
-  --ih-carousel-title-color: var(--ih-color-text-primary, #ffffff);
-  --ih-carousel-title-size: 2rem;
-  
-  --ih-carousel-label-font: var(--ih-font-sans, 'Inter', Helvetica, sans-serif);
-  --ih-carousel-label-color: var(--ih-color-accent, #7df9ff);
-  --ih-carousel-label-size: 0.8rem;
-  
-  --ih-carousel-divider-color: rgba(125, 249, 255, 0.45);
-  
+  /* Brand Palettes */
+  --ih-color-accent: #7df9ff;
+  --ih-color-accent-hover: #a0fbff;
+  --ih-color-border: rgba(125, 249, 255, 0.18);
+  --ih-color-border-subtle: rgba(255, 255, 255, 0.1);
+  --ih-color-panel-bg: rgba(10, 15, 44, 0.55);
+  --ih-color-primary: #0a0f2c;
+  --ih-color-primary-dark: #08163a;
+  --ih-color-surface: rgba(255, 255, 255, 0.92);
+  --ih-color-surface-dark: rgba(10, 15, 44, 0.65);
+  --ih-color-text-muted: rgba(200, 220, 255, 0.45);
+  --ih-color-text-primary: #ffffff;
+  --ih-color-text-secondary: rgba(200, 220, 255, 0.75);
+
+  /* Gradients */
+  --ih-gradient-accent: linear-gradient(135deg, #7df9ff 0%, #00c8d4 100%);
+  --ih-gradient-accent-h: linear-gradient(90deg, #7df9ff, #00c8d4);
+  --ih-gradient-accent-hover: linear-gradient(135deg, #a0fbff 0%, #00e0ee 100%);
+  --ih-gradient-accent-v: linear-gradient(180deg, #7df9ff, #00c8d4);
+
+  /* Typography */
+  --ih-font-heading: 'Outfit', 'Inter', Helvetica, sans-serif;
+  --ih-font-sans: 'Inter', Helvetica, sans-serif;
+
+  /* Effects */
+  --ih-blur-glass: 14px;
+  --ih-radius-lg: 16px;
+  --ih-radius-sm: 6px;
+  --ih-shadow-glow: 0 0 16px rgba(125, 249, 255, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  --ih-shadow-glow-hover: 0 0 28px rgba(125, 249, 255, 0.7),
+    0 6px 18px rgba(0, 0, 0, 0.35);
+
+  /* Carousel */
   --ih-carousel-desc-font: var(--ih-font-sans, 'Inter', Helvetica, sans-serif);
   --ih-carousel-desc-color: var(--ih-color-text-secondary, rgba(200, 220, 255, 0.85));
   --ih-carousel-desc-size: 0.95rem;
+  --ih-carousel-dot-active-glow: rgba(125, 249, 255, 0.9);
+  --ih-carousel-dot-color: rgba(255, 255, 255, 0.4);
+  --ih-carousel-dot-color-active: #ffffff;
+  --ih-carousel-dot-gap: 8px;
+  --ih-carousel-dot-size: 10px;
+  --ih-carousel-height: 420px;
+  --ih-carousel-height-sm: 320px;
+  --ih-carousel-height-xs: 280px;
 
-  /* CTA Button Tokens */
+  /* CTA */
+  --ih-carousel-cta-focus-outline: var(--ih-color-accent, #7df9ff);
   --ih-carousel-cta-font: var(--ih-font-sans, 'Inter', Helvetica, sans-serif);
   --ih-carousel-cta-color: var(--ih-color-primary, #0a0f2c);
   --ih-carousel-cta-bg: var(--ih-gradient-accent, linear-gradient(135deg, #7df9ff 0%, #00c8d4 100%));
   --ih-carousel-cta-bg-hover: var(--ih-gradient-accent-hover, linear-gradient(135deg, #a0fbff 0%, #00e0ee 100%));
   --ih-carousel-cta-radius: var(--ih-radius-sm, 6px);
-  --ih-carousel-cta-shadow: var(--ih-shadow-glow, 0 0 18px rgba(125, 249, 255, 0.45), 0 4px 12px rgba(0, 0, 0, 0.3));
-  --ih-carousel-cta-shadow-hover: var(--ih-shadow-glow-hover, 0 0 28px rgba(125, 249, 255, 0.7), 0 6px 20px rgba(0, 0, 0, 0.35));
-  --ih-carousel-cta-focus-outline: var(--ih-color-accent, #7df9ff);
+  --ih-carousel-cta-shadow: var(--ih-shadow-glow, 0 0 16px rgba(125, 249, 255, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3));
+  --ih-carousel-cta-shadow-hover: var(--ih-shadow-glow-hover, 0 0 28px rgba(125, 249, 255, 0.7), 0 6px 18px rgba(0, 0, 0, 0.35));
 
-  /* News Sidebar Tokens */
+  /* Carousel Slide */
+  --ih-carousel-divider-color: rgba(125, 249, 255, 0.45);
+  --ih-carousel-item-color: rgba(200, 220, 255, 0.85);
+  --ih-carousel-label-color: #7df9ff;
+  --ih-carousel-label-font: var(--ih-font-sans, 'Inter', Helvetica, sans-serif);
+  --ih-carousel-label-size: 0.8rem;
+  --ih-carousel-panel-bg: rgba(10, 15, 44, 0.55);
+  --ih-carousel-panel-border: rgba(125, 249, 255, 0.18);
+  --ih-carousel-panel-padding: 240px 240px;
+  --ih-carousel-panel-width: 33%;
+  --ih-carousel-panel-blur: var(--ih-blur-glass, 14px);
+  --ih-carousel-title-color: #ffffff;
+  --ih-carousel-title-size: 1.3rem;
+  --ih-carousel-title-font: var(--ih-font-heading, 'Outfit', 'Inter', Helvetica, sans-serif);
+
+  /* Carousel News */
   --ih-carousel-news-bg: var(--ih-color-primary, #0a0f2c);
   --ih-carousel-news-heading-font: var(--ih-font-heading, 'Outfit', 'Inter', Helvetica, sans-serif);
   --ih-carousel-news-heading-color: var(--ih-color-text-primary, #ffffff);
@@ -46,13 +82,108 @@
   --ih-carousel-news-link-color: var(--ih-color-text-secondary, rgba(200, 220, 255, 0.8));
   --ih-carousel-news-link-hover-color: var(--ih-color-accent, #7df9ff);
 
-  /* Slick Dots Tokens */
-  --ih-carousel-dot-color: rgba(8, 22, 58, 0.82);
-  --ih-carousel-dot-active-color: #0a0f2c;
-  --ih-carousel-dot-active-glow: rgba(125, 249, 255, 0.9);
+  /* Carousel Vertical Tabs */
+  --ih-carousel-vt-bg: rgba(10, 15, 44, 0.55);
+  --ih-carousel-vt-blur: var(--ih-blur-glass, 14px);
+  --ih-carousel-vt-border: var(--ih-color-border, rgba(125, 249, 255, 0.18));
+  --ih-carousel-vt-item-accent: #00c8d4;
+  --ih-carousel-vt-item-border: rgba(125, 249, 255, 0.18);
+  --ih-carousel-vt-link-color: var(--ih-color-text-secondary, rgba(200, 220, 255, 0.85));
+  --ih-carousel-vt-link-font: var(--ih-font-sans, 'Inter', Helvetica, sans-serif);
+  --ih-carousel-vt-link-hover: #ffffff;
+  --ih-carousel-vt-title-color: #ffffff;
+
+  /* Footer */
+  --ih-footer-bg: rgba(0, 0, 0, 0.1);
+  --ih-footer-border: rgba(255, 255, 255, 0.1);
+  --ih-footer-link: rgba(255, 255, 255, 0.5);
+  --ih-footer-link-hover: #ffffff;
+  --ih-footer-text: rgba(255, 255, 255, 0.5);
+
+  /* Header */
+  --ih-header-bg: rgba(0, 0, 0, 0.1);
+  --ih-header-border: rgba(255, 255, 255, 0.1);
+  --ih-header-link: rgba(255, 255, 255, 0.5);
+  --ih-header-link-hover: #ffffff;
+  --ih-header-text: rgba(255, 255, 255, 0.5);
+
+  /* Offerings */
+  --ih-offerings-bg: rgba(0, 0, 0, 0.1);
+  --ih-offerings-border: rgba(255, 255, 255, 0.1);
+  --ih-offerings-link: rgba(255, 255, 255, 0.5);
+  --ih-offerings-link-hover: #ffffff;
+  --ih-offerings-text: rgba(255, 255, 255, 0.5);
+
+  /* Partner */
+  --ih-partner-bg: rgba(0, 0, 0, 0.1);
+  --ih-partner-border: rgba(255, 255, 255, 0.1);
+  --ih-partner-link: rgba(255, 255, 255, 0.5);
+  --ih-partner-link-hover: #ffffff;
+  --ih-partner-text: rgba(255, 255, 255, 0.5);
+
+  /* Results */
+  --ih-results-bg: rgba(0, 0, 0, 0.1);
+  --ih-results-border: rgba(255, 255, 255, 0.1);
+  --ih-results-link: rgba(255, 255, 255, 0.5);
+  --ih-results-link-hover: #ffffff;
+  --ih-results-text: rgba(255, 255, 255, 0.5);
+
+  /* Upload */
+  --ih-upload-bg: rgba(0, 0, 0, 0.1);
+  --ih-upload-border: rgba(255, 255, 255, 0.1);
+  --ih-upload-link: rgba(255, 255, 255, 0.5);
+  --ih-upload-link-hover: #ffffff;
+  --ih-upload-text: rgba(255, 255, 255, 0.5);
 }
 
 /* ─── Section Layout ─────────────────────────────────── */
+
+.hero-region {
+  position: relative;
+
+  height: var(--ih-carousel-height);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  overflow: hidden;
+}
+
+.hero-region::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(90deg,
+      rgba(10, 15, 44, .45),
+      rgba(10, 15, 44, .15));
+
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+}
+
+.vertical-tabs-container {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.carousel-content {
+  flex: 1;
+  position: relative;
+}
+
 .carousel-section {
   width: 100%;
   max-width: 100%;
@@ -129,21 +260,21 @@
   height: 100%;
   display: flex;
   align-items: center;
-  background: linear-gradient(90deg, rgba(10, 15, 44, 0.7) 0%, rgba(10, 15, 44, 0.3) 70%, transparent 100%);
+  justify-content: flex-end;
+  background: rgba(255, 255, 255, 0);
 }
 
 .slide-content {
-  background: var(--ih-carousel-panel-bg, rgba(10, 15, 44, 0.55));
-  backdrop-filter: blur(var(--ih-carousel-panel-blur)) saturate(1.4);
-  -webkit-backdrop-filter: blur(var(--ih-carousel-panel-blur)) saturate(1.4);
-  border-right: 1px solid var(--ih-carousel-panel-border, rgba(125, 249, 255, 0.18));
-  border-radius: 0 8px 8px 0;
+  background: rgba(255, 255, 255, 0);
+  border-left: 1px solid var(--ih-carousel-panel-border, rgba(125, 249, 255, 0.18));
+  border-radius: 8px 0 0 8px;
   width: var(--ih-carousel-panel-width);
   padding: var(--ih-carousel-panel-padding);
   display: flex;
   flex-direction: column;
   gap: 0;
-  margin-left: 0;
+  margin-left: auto;
+  margin-right: 0;
   max-width: 550px;
 }
 
@@ -187,6 +318,7 @@
   padding: 0;
   line-height: 1.6;
 }
+
 /* ---- Item ----- */
 .slide-item {
   font-family: var(--ih-carousel-desc-font);
@@ -309,6 +441,103 @@
   border-color: transparent !important;
 }
 
+/* ─── Vertical Tabs ───────────────────────────────────── */
+
+/*  I do not use this.  It is just to help with structure by mimicking the slide"
+
+.vertical{
+  position: relative;
+  width: 100%;
+  height: var(--ih-carousel-height);
+  overflow: hidden;
+}
+
+
+.vertical-tab {
+  background: var(--ih-carousel-vt-bg, rgba(10, 15, 44, 0.55));
+  backdrop-filter: blur(var(--ih-carousel-vt-blur)) saturate(1.4);
+  -webkit-backdrop-filter: blur(var(--ih-carousel-vt-blur)) saturate(1.4);
+  border-left: 1px solid var(--ih-carousel-vt-border, rgba(125, 249, 255, 0.18));
+  border-radius: 8px 0 0 8px;
+  width: var(--ih-carousel-vt-width);
+  padding: var(--ih-carousel-vt-padding);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-left: auto;
+  margin-right: 0;
+  max-width: 550px;
+}
+  
+*/
+
+.vertical-tabs-container {
+  background: var(--ih-carousel-vt-bg, rgba(255, 255, 255, 0));
+  backdrop-filter: blur(var(--ih-carousel-vt-blur)) saturate(1.4);
+  -webkit-backdrop-filter: blur(var(--ih-carousel-vt-blur)) saturate(1.4);
+  border-right: 1px solid var(--ih-carousel-vt-item-border);
+  height: 100%;
+}
+
+.vertical-tabs {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-item {
+  background: transparent;
+
+  color: var(--ih-carousel-vt-link-color);
+
+  border: none;
+  border-bottom: 1px solid var(--ih-carousel-vt-item-border);
+
+  text-align: left;
+
+  padding: 18px 22px;
+
+  transition: all .2s ease;
+}
+
+.tab-item:last-child {
+  border-bottom: none;
+}
+
+.tab-item:focus-visible {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--ih-carousel-vt-link-hover);
+  outline: none;
+}
+
+.tab-item:hover {
+  background: rgba(255, 255, 255, .05);
+}
+
+.tab-item.active {
+  background: rgba(255, 255, 255, .08);
+
+  color: white;
+
+  font-weight: 600;
+}
+
+.tab-item.active {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ih-carousel-vt-title-color);
+  font-weight: 600;
+}
+
+.tab-item.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--ih-carousel-vt-item-accent);
+}
+
 /* ─── News Sidebar ────────────────────────────────────── */
 .news-col {
   height: var(--ih-carousel-height);
@@ -394,6 +623,7 @@
 
 /* Tablets */
 @media (max-width: 992px) {
+
   .carousel-wrapper,
   .slide {
     height: var(--ih-carousel-height-sm);
@@ -402,17 +632,17 @@
   ::ng-deep carousel .carousel-slide {
     height: var(--ih-carousel-height-sm) !important;
   }
-  
+
   .news-col {
     height: var(--ih-carousel-height-sm);
   }
-  
+
   :host {
     --ih-carousel-panel-width: 55%;
     --ih-carousel-panel-padding: 32px 28px;
     --ih-carousel-title-size: 1.6rem;
   }
-  
+
   .slide-content {
     max-width: 450px;
   }
@@ -420,6 +650,7 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+
   .carousel-wrapper,
   .slide {
     height: var(--ih-carousel-height-xs);
@@ -428,38 +659,38 @@
   ::ng-deep carousel .carousel-slide {
     height: var(--ih-carousel-height-xs) !important;
   }
-  
+
   .news-col {
     height: auto;
     min-height: 300px;
   }
-  
+
   :host {
     --ih-carousel-panel-width: 75%;
     --ih-carousel-panel-padding: 24px 20px;
     --ih-carousel-title-size: 1.3rem;
     --ih-carousel-desc-size: 0.85rem;
   }
-  
+
   .slide-content {
     max-width: 100%;
     border-radius: 0;
     margin-left: 0;
   }
-  
+
   .slide-content-overlay {
-    background: linear-gradient(90deg, rgba(10, 15, 44, 0.8) 0%, rgba(10, 15, 44, 0.4) 100%);
+    background: rgba(255, 255, 255, 0)
   }
-  
+
   .slide-divider {
     width: 40px;
   }
-  
+
   .slide-cta {
     padding: 8px 18px;
     font-size: 0.8rem;
   }
-  
+
   .news-panel {
     padding: 20px 16px;
   }
@@ -467,6 +698,7 @@
 
 /* Small Mobile */
 @media (max-width: 576px) {
+
   .carousel-wrapper,
   .slide {
     height: 260px;
@@ -475,7 +707,7 @@
   ::ng-deep carousel .carousel-slide {
     height: 260px !important;
   }
-  
+
   :host {
     --ih-carousel-panel-width: 85%;
     --ih-carousel-panel-padding: 18px 16px;
@@ -483,22 +715,22 @@
     --ih-carousel-desc-size: 0.75rem;
     --ih-carousel-label-size: 0.65rem;
   }
-  
+
   .slide-content-overlay {
-    background: linear-gradient(90deg, rgba(10, 15, 44, 0.85) 0%, rgba(10, 15, 44, 0.5) 100%);
+    background: rgba(255, 255, 255, 0)
   }
-  
+
   .slide-divider {
     width: 30px;
     margin: 4px 0 8px 0;
   }
-  
+
   .slide-cta {
     padding: 6px 14px;
     font-size: 0.7rem;
     margin-top: 4px;
   }
-  
+
   ::ng-deep .slick-dots {
     bottom: 8px !important;
   }

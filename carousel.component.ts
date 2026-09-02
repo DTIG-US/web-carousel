@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CarouselComponent as NgxCarouselEase } from 'ngx-carousel-ease';
 import * as siteData from '../../data.json';
@@ -10,11 +10,14 @@ import * as siteData from '../../data.json';
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit, AfterViewInit {
+  @ViewChild(NgxCarouselEase) carouselRef!: NgxCarouselEase;
+
   data = {
     carouselImage: 'https://placehold.co/170x45'
   }
 
   news: any = (siteData as any).default;
+  activeSlideIndex = 0;
 
   ngOnInit() {
   }
@@ -24,5 +27,18 @@ export class CarouselComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       window.dispatchEvent(new Event('resize'));
     }, 100);
+  }
+
+  goToSlide(index: number) {
+    if (this.carouselRef && this.carouselRef.slider) {
+      this.carouselRef.slider.goTo(index);
+      this.activeSlideIndex = index;
+    }
+  }
+
+  onSlideChange(event: any) {
+    if (event && event.detail !== undefined) {
+      this.activeSlideIndex = event.detail;
+    }
   }
 }
