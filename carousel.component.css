@@ -58,14 +58,14 @@
 
   /* Carousel Slide */
   --ih-carousel-divider-color: rgba(125, 249, 255, 0.45);
-  --ih-carousel-item-color: rgba(200, 220, 255, 0.85);
-  --ih-carousel-label-color: #7df9ff;
+  --ih-carousel-item-color: #ffffff;
+  --ih-carousel-label-color: #ffffff;
   --ih-carousel-label-font: var(--ih-font-sans, 'Inter', Helvetica, sans-serif);
-  --ih-carousel-label-size: 0.8rem;
+  --ih-carousel-label-size: 1.0rem;
   --ih-carousel-panel-bg: rgba(10, 15, 44, 0.55);
   --ih-carousel-panel-border: rgba(125, 249, 255, 0.18);
-  --ih-carousel-panel-padding: 240px 240px;
-  --ih-carousel-panel-width: 33%;
+  --ih-carousel-panel-padding: 0px 0 0 30px;
+  --ih-carousel-panel-width: 75%;
   --ih-carousel-panel-blur: var(--ih-blur-glass, 14px);
   --ih-carousel-title-color: #ffffff;
   --ih-carousel-title-size: 1.3rem;
@@ -265,18 +265,22 @@
 }
 
 .slide-content {
-  background: rgba(255, 255, 255, 0);
+  background: rgba(10, 15, 44, 0.55);
   border-left: 1px solid var(--ih-carousel-panel-border, rgba(125, 249, 255, 0.18));
-  border-radius: 8px 0 0 8px;
+  border-radius: 8px;
   width: var(--ih-carousel-panel-width);
   padding: var(--ih-carousel-panel-padding);
   display: flex;
   flex-direction: column;
   gap: 0;
   margin-left: auto;
-  margin-right: 0;
+  margin-right: 0px;
+  margin-top: 240px;
   max-width: 550px;
+  position: relative;
+  z-index: 9999;
 }
+
 
 /* ─── Slide Label ────────────────────────────────────── */
 .slide-label {
@@ -286,7 +290,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ih-carousel-label-color, #7df9ff);
-  margin: 0 0 8px 0;
+  margin: 10px 0 10px 0;
 }
 
 /* ─── Slide Title ────────────────────────────────────── */
